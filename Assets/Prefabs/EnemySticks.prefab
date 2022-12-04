@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7843701434659420953}
   - component: {fileID: 7843701434659420955}
   - component: {fileID: 7843701434659420952}
+  - component: {fileID: 4811845842699650639}
   m_Layer: 0
   m_Name: EnemySticks
   m_TagString: Enemy
@@ -133,7 +134,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7843701434659420962}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ea9b1402671b72f4cb453faa6a2357e1, type: 3}
   m_Name: 
@@ -165,4 +166,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 100
-  speed: 0
+--- !u!114 &4811845842699650639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7843701434659420962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d83e482b66233d40b4a43d396b8a3d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scenarioScroll: {fileID: 7843701434659420953}

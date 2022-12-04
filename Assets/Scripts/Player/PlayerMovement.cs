@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public Collider2D playerCollider;
+
     [SerializeField] private float _speed;
     [SerializeField] private float _jumpForce;
     private bool isJumping;
@@ -20,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        IsGrounded();
         Jump();
     }
     void Jump()
@@ -31,20 +34,18 @@ public class PlayerMovement : MonoBehaviour
         }
 
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+
+    private void IsGrounded()
     {
-        if (collision.gameObject.CompareTag("Ground"))
+        RaycastHit2D rayLeft = Physics2D.Raycast(playerCollider.bounds.min, Vector2.down, 0.1f);
+        RaycastHit2D rayRight = Physics2D.Raycast(new Vector2(playerCollider.bounds.max.x, playerCollider.bounds.min.y), Vector2.down, 0.1f);
+
+        if ((rayLeft.collider != null && rayLeft.collider.gameObject.CompareTag("Ground"))
+            || (rayRight.collider != null && rayRight.collider.gameObject.CompareTag("Ground")))
         {
             isJumping = false;
             //_animator.SetBool("IsJumping", false);
         }
+        else isJumping = true;
     }
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            isJumping = true;
-        }
-    }
-
 }
