@@ -25,7 +25,7 @@ public class platformSpawner : MonoBehaviour
     private void SummonPlatform()
     {
         float PlaformMultiplier = Random.Range(0.5f, 2f);
-        GameObject summon = Instantiate(PlatformPrefab, new Vector3(10f, oldPlatformY + Random.Range(-2f, 2f)), Quaternion.identity);
+        GameObject summon = Instantiate(PlatformPrefab, new Vector3(15f, oldPlatformY + Random.Range(-2f, 2f)), Quaternion.identity);
         summon.transform.localScale = new Vector3(5 * PlaformMultiplier, 1, 1);
         nextTimer = (5f * PlaformMultiplier / ScrollManager.Instance.GetScrollSpeed())+0.25f;
         currentTime = 0;
