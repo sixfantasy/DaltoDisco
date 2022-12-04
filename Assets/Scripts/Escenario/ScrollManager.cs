@@ -23,5 +23,9 @@ public class ScrollManager : MonoBehaviour
             _speed += _acceleration * Time.deltaTime;
     }
 
-    public float GetScrollSpeed() => _speed;
+    public float GetScrollSpeed()
+    {
+        if (!hasToScroll) return 0;
+        return _speed;
+    }
 }
