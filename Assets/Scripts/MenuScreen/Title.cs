@@ -48,7 +48,6 @@ public class Title : MonoBehaviour
     {
         if ((_currentCooldown -= Time.deltaTime) < 0)
         {
-
             _titleText.transform.localScale += (_isGrowing ? 1 : -1) * new Vector3(Time.deltaTime, Time.deltaTime) * _scaleModifierSpeed;
 
             if (_titleText.transform.localScale.x > _maxLocalScale || _titleText.transform.localScale.x < _minLocalScale)
