@@ -37,13 +37,10 @@ public class Title : MonoBehaviour
         _titleText.fontSharedMaterial.SetFloat("_BevelOffset", Mathf.Lerp(_minBevelOffset, _maxBevelOffset, _bevelOffsetInterpolation));
 
         _bevelOffsetInterpolation += Time.deltaTime / 2;
-        switch (_bevelOffsetInterpolation)
-        {
-            case >= 0.5f:
-            case <= -0.5f:
-                (_minBevelOffset, _maxBevelOffset) = (_maxBevelOffset, _minBevelOffset);
-                _bevelOffsetInterpolation = _minBevelOffset;
-                break;
+        if (_bevelOffsetInterpolation >= 1f) 
+        { 
+            (_minBevelOffset, _maxBevelOffset) = (_maxBevelOffset, _minBevelOffset);
+            _bevelOffsetInterpolation = 0;
         }
     }
 
