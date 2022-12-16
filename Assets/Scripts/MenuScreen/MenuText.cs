@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-public class Title : MonoBehaviour
+public class MenuText : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _titleText;
 
