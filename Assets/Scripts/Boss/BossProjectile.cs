@@ -9,7 +9,7 @@ public class BossProjectile : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        rb.velocity = new Vector2(-10, 0);
+        rb.velocity = transform.right * -12;
     }
 
     // Update is called once per frame

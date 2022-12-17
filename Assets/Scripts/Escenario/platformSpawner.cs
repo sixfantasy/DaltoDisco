@@ -5,7 +5,7 @@ using UnityEngine;
 public class platformSpawner : MonoBehaviour
 {
     public GameObject PlatformPrefab;
-    float oldPlatformY = 0;
+    float oldPlatformY = -1;
     float nextTimer = 1.5f;
     float currentTime = 0;
     // Start is called before the first frame update
@@ -24,10 +24,11 @@ public class platformSpawner : MonoBehaviour
 
     private void SummonPlatform()
     {
-        float PlaformMultiplier = Random.Range(0.5f, 2f);
-        GameObject summon = Instantiate(PlatformPrefab, new Vector3(15f, oldPlatformY + Random.Range(-2f, 2f)), Quaternion.identity);
-        summon.transform.localScale = new Vector3(5 * PlaformMultiplier, 1, 1);
-        nextTimer = (5f * PlaformMultiplier / ScrollManager.Instance.GetScrollSpeed())+0.25f;
+        float PlaformMultiplier = Random.Range(0.8f, 2f);
+        Debug.Log(ScrollManager.Instance.GetScrollSpeed());
+        GameObject summon = Instantiate(PlatformPrefab, new Vector3(15f, oldPlatformY + Random.Range(-1.5f, 1.5f)), Quaternion.identity);
+        summon.transform.localScale = new Vector3(5 * PlaformMultiplier * ScrollManager.Instance.GetScrollSpeed() / 7.5f , 1, 1);
+        nextTimer = (5f * (PlaformMultiplier / 7.5f) +0.25f);
         currentTime = 0;
     }
 }

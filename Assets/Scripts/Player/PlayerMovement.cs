@@ -27,9 +27,9 @@ public class PlayerMovement : MonoBehaviour
     }
     void Jump()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && !isJumping)
+        if (Input.GetAxis("Jump") > 0 && !isJumping)
         {
-            _rb.AddForce(new Vector2(_rb.velocity.x, _jumpForce));
+            _rb.velocity = new Vector2(0, _jumpForce);
             //_animator.SetBool("IsJumping", true);
         }
 
