@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b81b1bb8850ba7d459f5c57b5ce398b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerCollider: {fileID: 0}
+  playerCollider: {fileID: 5623665994005298505}
   _speed: 10
   _jumpForce: 400
 --- !u!114 &5623665994005298509

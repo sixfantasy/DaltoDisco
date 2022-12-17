@@ -17,7 +17,7 @@ public class BossStageManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Debug.Log(distanceReference.DistanceTravelled);
         if (distanceReference.DistanceTravelled > 200 && Stage == 0)
             Stage = 1;
         if (damage.health < 8 && Stage == 1)

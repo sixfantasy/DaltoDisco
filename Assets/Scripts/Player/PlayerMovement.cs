@@ -23,29 +23,32 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         IsGrounded();
-        Jump();
+        if (Input.GetAxis("Jump") > 0 && !IsGrounded())
+        {
+            Jump();
+        }
     }
     void Jump()
     {
-        if (Input.GetAxis("Jump") > 0 && !isJumping)
-        {
+     
+            Debug.Log("Jumping");
             _rb.velocity = new Vector2(0, _jumpForce);
             //_animator.SetBool("IsJumping", true);
-        }
-
     }
 
-    private void IsGrounded()
+    private bool IsGrounded()
     {
-        RaycastHit2D rayLeft = Physics2D.Raycast(playerCollider.bounds.min, Vector2.down, 0.1f);
-        RaycastHit2D rayRight = Physics2D.Raycast(new Vector2(playerCollider.bounds.max.x, playerCollider.bounds.min.y), Vector2.down, 0.1f);
+        RaycastHit2D rayLeft = Physics2D.Raycast(new Vector2(playerCollider.bounds.min.x, playerCollider.bounds.min.y - 0.1f), Vector2.down, 0.3f);
+        RaycastHit2D rayRight = Physics2D.Raycast(new Vector2(playerCollider.bounds.max.x, playerCollider.bounds.min.y - 0.1f), Vector2.down, 0.3f);
+     
 
         if ((rayLeft.collider != null && rayLeft.collider.gameObject.CompareTag("Ground"))
             || (rayRight.collider != null && rayRight.collider.gameObject.CompareTag("Ground")))
         {
-            isJumping = false;
+            Debug.Log("Ground Detected");
+            return false;
             //_animator.SetBool("IsJumping", false);
         }
-        else isJumping = true;
+        else return true;
     }
 }
