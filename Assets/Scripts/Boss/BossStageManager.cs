@@ -24,6 +24,7 @@ public class BossStageManager : MonoBehaviour
         if (damage.health < 3 && Stage == 2)
             Stage = 3;
         GetComponent<Animator>().SetInteger("Stage", Stage);
+        Debug.Log(GetComponent<Animator>().GetInteger("Stage"));
 
 
     }

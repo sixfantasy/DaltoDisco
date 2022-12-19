@@ -6,7 +6,11 @@ public class PlatformDastroyer : MonoBehaviour
 {
     private void OnTriggerExit2D(Collider2D collision)
     {
-        Destroy(collision.transform.parent.gameObject);
+        if (collision.tag == "Ground")
+            Destroy(collision.transform.parent.gameObject);
+        else
+            Destroy(collision.gameObject);
+            
     }
 
 }

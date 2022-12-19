@@ -8,7 +8,6 @@ public class BossAttack1 : MonoBehaviour
     int Stage;
     float timer;
     float attackSpeed = 0.7f;
-    float distanceTravelled;
     // Start is called before the first frame update
     void Start()
     {
