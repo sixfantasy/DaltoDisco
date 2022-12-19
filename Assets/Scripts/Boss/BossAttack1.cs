@@ -25,7 +25,7 @@ public class BossAttack1 : MonoBehaviour
             if (Stage == 1)
             {
                 timer = 0;
-                Instantiate(note, transform.position + Vector3.left * 2, Quaternion.identity * Quaternion.Euler(new Vector3(0, 0, Random.Range(-20, 20))));
+                Instantiate(note, transform.position + (Vector3.left+Vector3.up) * 2, Quaternion.identity * Quaternion.Euler(new Vector3(0, 0, Random.Range(-20, 20))));
             }
             if (Stage == 2)
             {
