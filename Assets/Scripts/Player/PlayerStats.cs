@@ -7,7 +7,7 @@ public class PlayerStats : MonoBehaviour
 {
     public static PlayerStats playerStats;
     public GameObject player;
-
+    public Animator playerAnimator;
     public float health;
     public float maxHealth;
 
@@ -42,6 +42,7 @@ public class PlayerStats : MonoBehaviour
         if (health < 0)
         {
             health = 0;
+            playerAnimator.SetBool("IsDead",true);
             Destroy(player);
         }
     }

@@ -10,12 +10,12 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float _jumpForce;
     private bool isJumping;
     private Rigidbody2D _rb;
-    //private Animator _animator; 
+    private Animator _animator; 
 
     // Start is called before the first frame update
     void Start()
     {
-        //_animator = GetComponent<Animator>();
+        _animator = GetComponent<Animator>();
         _rb = GetComponent<Rigidbody2D>();
     }
 
@@ -30,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && !isJumping)
         {
             _rb.AddForce(new Vector2(_rb.velocity.x, _jumpForce));
-            //_animator.SetBool("IsJumping", true);
+            
         }
 
     }
@@ -44,8 +44,12 @@ public class PlayerMovement : MonoBehaviour
             || (rayRight.collider != null && rayRight.collider.gameObject.CompareTag("Ground")))
         {
             isJumping = false;
-            //_animator.SetBool("IsJumping", false);
+            _animator.SetBool("IsJumping", false);
         }
-        else isJumping = true;
-    }
+        else
+        {
+            isJumping = true;
+            _animator.SetBool("IsJumping", true);
+        }
+        }
 }
