@@ -22,54 +22,38 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        IsGrounded();
-        if (Input.GetAxis("Jump") > 0 && !IsGrounded())
+        if (playerCollider != null)
         {
-            Jump();
+            IsGrounded();
+            if (Input.GetAxis("Jump") > 0 && !IsGrounded())
+            {
+                Jump();
+            }
         }
     }
     void Jump()
     {
-<<<<<<< Assets/Scripts/Player/PlayerMovement.cs
-        if (Input.GetKeyDown(KeyCode.Space) && !isJumping)
-        {
-            _rb.AddForce(new Vector2(_rb.velocity.x, _jumpForce));
-            
-        }
 
-=======
-     
-            Debug.Log("Jumping");
-            _rb.velocity = new Vector2(0, _jumpForce);
-            //_animator.SetBool("IsJumping", true);
->>>>>>> Assets/Scripts/Player/PlayerMovement.cs
+        Debug.Log("Jumping");
+        _rb.velocity = new Vector2(0, _jumpForce);
+        //_animator.SetBool("IsJumping", true);
     }
 
     private bool IsGrounded()
     {
         RaycastHit2D rayLeft = Physics2D.Raycast(new Vector2(playerCollider.bounds.min.x, playerCollider.bounds.min.y - 0.1f), Vector2.down, 0.3f);
         RaycastHit2D rayRight = Physics2D.Raycast(new Vector2(playerCollider.bounds.max.x, playerCollider.bounds.min.y - 0.1f), Vector2.down, 0.3f);
-     
+
 
         if ((rayLeft.collider != null && rayLeft.collider.gameObject.CompareTag("Ground"))
             || (rayRight.collider != null && rayRight.collider.gameObject.CompareTag("Ground")))
         {
-<<<<<<< Assets/Scripts/Player/PlayerMovement.cs
-            isJumping = false;
-            _animator.SetBool("IsJumping", false);
-        }
-        else
-        {
-            isJumping = true;
-            _animator.SetBool("IsJumping", true);
-        }
-        }
-=======
             Debug.Log("Ground Detected");
+            _animator.SetBool("IsJumping", false);
             return false;
-            //_animator.SetBool("IsJumping", false);
         }
-        else return true;
+
+        _animator.SetBool("IsJumping", true);
+        return true;
     }
->>>>>>> Assets/Scripts/Player/PlayerMovement.cs
 }

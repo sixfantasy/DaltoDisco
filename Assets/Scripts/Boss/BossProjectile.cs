@@ -20,7 +20,7 @@ public class BossProjectile : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision != null && collision.gameObject.tag == "Player")
-            GameObject.Find("Managers").GetComponent<PlayerStats>().DealDamage(1);
+            GameObject.Find("Managers").GetComponent<PlayerStats>().DealDamage(50);
             //Deduct a life to player
         Destroy(this.gameObject);
 
