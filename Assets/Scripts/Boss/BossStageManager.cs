@@ -7,6 +7,7 @@ public class BossStageManager : MonoBehaviour
     EnemyGetDamage damage;
     UIManager distanceReference;
     public int Stage;
+    public EnemySpawner spawner;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,11 +19,16 @@ public class BossStageManager : MonoBehaviour
     void Update()
     {
         if (distanceReference.DistanceTravelled > 200 && Stage == 0)
+        {
             Stage = 1;
-        if (damage.health < 8 && Stage == 1)
+            spawner.enabled = false;
+        }
+        if (damage.health < 700 && Stage == 1)
             Stage = 2;
-        if (damage.health < 3 && Stage == 2)
+        if (damage.health < 200 && Stage == 2)
             Stage = 3;
+        if (damage.health > 0 && Stage == 2)
+            spawner.enabled = true;
         GetComponent<Animator>().SetInteger("Stage", Stage);
         Debug.Log(GetComponent<Animator>().GetInteger("Stage"));
 
