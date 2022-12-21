@@ -16,7 +16,7 @@ public class PlayerShooting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && collider2D != null)
         {
             GameObject spawn = Instantiate(projectile, collider2D.bounds.center, Quaternion.identity);
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
