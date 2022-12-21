@@ -6,11 +6,13 @@ public class EnemyGetDamage : MonoBehaviour
 {
     public float health;
     public float maxHealth;
+    public Animator animator;
 
     // Start is called before the first frame update
     void Start()
     {
         health = maxHealth;
+        animator = GetComponent<Animator>();
     }
     public void DealDamage(float damage)
     {
@@ -27,7 +29,16 @@ public class EnemyGetDamage : MonoBehaviour
     {
         if (health < 0)
         {
-            Destroy(gameObject);
+            StartCoroutine(Die());
         }
+    }
+
+    private IEnumerator Die()
+    {
+        animator.SetTrigger("Die");
+        Destroy(GetComponent<Rigidbody2D>());
+        Destroy(GetComponent<Collider2D>());
+        yield return new WaitForSeconds(1);
+        Destroy(gameObject);
     }
 }

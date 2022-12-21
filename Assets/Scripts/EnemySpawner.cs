@@ -27,13 +27,13 @@ public class EnemySpawner : MonoBehaviour
 
         if (EnemyTimer >= 3f)
         {
-            Instantiate(enemy1, cam.ScreenToWorldPoint(new Vector3(Screen.width-200,Screen.height+200, 10)), Quaternion.identity);
+            Instantiate(enemy1, cam.ScreenToWorldPoint(new Vector3(Screen.width+100,Screen.height+200, 10)), Quaternion.identity);
             EnemyTimer = 0f;
 
         }
         if (EnemyTimer2 >= 10f)
         {
-            Instantiate(enemy2, cam.ScreenToWorldPoint(new Vector3(Screen.width -200, Screen.height + 200, 10)), Quaternion.identity);
+            Instantiate(enemy2, cam.ScreenToWorldPoint(new Vector3(Screen.width+100, Screen.height + 200, 10)), Quaternion.identity);
             EnemyTimer2 = 0f;
         }
 
