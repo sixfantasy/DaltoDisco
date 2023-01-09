@@ -7,7 +7,7 @@ public class PlayerStats : MonoBehaviour
 {
     public static PlayerStats playerStats;
     public GameObject player;
-
+    public Animator playerAnimator;
     public float health;
     public float maxHealth;
 
@@ -29,19 +29,21 @@ public class PlayerStats : MonoBehaviour
     public void DealDamage(float damage)
     {
         health -= damage;
-        CheckDeath();
+        StartCoroutine(CheckDeath());
     }
     public void HealCharacter(float heal)
     {
         health += heal;
-        CheckDeath();
     }
 
-    private void CheckDeath()
+    IEnumerator CheckDeath()
     {
-        if (health < 0)
+        if (health <= 0)
         {
             health = 0;
+            Destroy(player.GetComponent<Collider2D>());
+            playerAnimator.SetBool("IsDead",true);
+            yield return new WaitForSeconds(2);
             Destroy(player);
         }
     }
