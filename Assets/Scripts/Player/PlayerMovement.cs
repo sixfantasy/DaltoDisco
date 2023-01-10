@@ -10,7 +10,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float _jumpForce;
     private bool isJumping;
     private Rigidbody2D _rb;
-    private Animator _animator; 
+    private Animator _animator;
+    private float _spacePressedTime = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -25,18 +26,28 @@ public class PlayerMovement : MonoBehaviour
         if (playerCollider != null)
         {
             IsGrounded();
-            if (Input.GetAxis("Jump") > 0 && !IsGrounded())
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                // Use has pressed the Space key. We don't know if they'll release or hold it, so keep track of when they started holding it.
+                _spacePressedTime = Time.timeSinceLevelLoad;
+            }
+            else if (Input.GetKeyUp(KeyCode.Space) && !IsGrounded())
+            {
+                Jump(Time.timeSinceLevelLoad  - _spacePressedTime);
+            }
+            //IsGrounded();
+            /*if (Input.GetAxis("Jump") > 0 && !IsGrounded())
             {
                 Jump();
-            }
+            }*/
         }
     }
-    void Jump()
+    void Jump(float length)
     {
 
         Debug.Log("Jumping");
-        _rb.velocity = new Vector2(0, _jumpForce);
-        //_animator.SetBool("IsJumping", true);
+        _rb.velocity = new Vector2(0, _jumpForce*Mathf.Clamp(length, 0.075f, 0.2f)*6);
+        _animator.SetBool("IsJumping", true);
     }
 
     private bool IsGrounded()
