@@ -46,7 +46,7 @@ public class PlayerMovement : MonoBehaviour
     {
 
         Debug.Log("Jumping");
-        _rb.velocity = new Vector2(0, _jumpForce*Mathf.Clamp(length, 0.075f, 0.2f)*6);
+        _rb.velocity = new Vector2(0, _jumpForce*Mathf.Clamp(length, 0.1f, 0.2f)*6);
         _animator.SetBool("IsJumping", true);
     }
 

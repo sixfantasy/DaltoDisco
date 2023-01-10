@@ -8,6 +8,7 @@ public class PlayerShooting : MonoBehaviour
     public float damage;
     public float projectileForce;
     private BoxCollider2D collider2D;
+    Vector2 shootCorrection = new Vector2(0, -2);
 
     private void Start()
     {
@@ -21,7 +22,7 @@ public class PlayerShooting : MonoBehaviour
             GameObject spawn = Instantiate(projectile, collider2D.bounds.center, Quaternion.identity);
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector2 myPos = transform.position;
-            Vector2 direction = (mousePos - myPos).normalized;
+            Vector2 direction = (mousePos - myPos + shootCorrection).normalized;
             spawn.GetComponent<Rigidbody2D>().velocity = direction * projectileForce;
             spawn.GetComponent<projectiles>().damage = damage;
         }
