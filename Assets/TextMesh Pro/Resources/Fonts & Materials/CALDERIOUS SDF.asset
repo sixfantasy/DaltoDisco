@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
-  m_Name: CALDERIOUS SDF 1
+  m_Name: CALDERIOUS SDF
   m_EditorClassIdentifier: 
-  hashCode: 668351165
+  hashCode: 1168024492
   material: {fileID: 857636387305972887}
-  materialHashCode: 196012925
+  materialHashCode: -954530548
   m_Version: 1.1.0
   m_SourceFontFileGUID: ab2c24a7bd47ba742bf4b6dcc1a31035
   m_SourceFontFile_EditorRef: {fileID: 12800000, guid: ab2c24a7bd47ba742bf4b6dcc1a31035, type: 3}
@@ -2247,7 +2247,7 @@ Material:
     - _Ambient: 0.5
     - _Bevel: 1
     - _BevelClamp: 0
-    - _BevelOffset: -0.14703095
+    - _BevelOffset: -0.25797784
     - _BevelRoundness: 1
     - _BevelWidth: 0.5
     - _BumpFace: 0
@@ -2301,11 +2301,11 @@ Material:
     - _FaceColor: {r: 1, g: 1, b: 1, a: 1}
     - _GlowColor: {r: 1, g: 1, b: 1, a: 0.5}
     - _MaskCoord: {r: 0, g: 0, b: 32767, a: 32767}
-    - _OutlineColor: {r: 0.7830189, g: 0.6700523, b: 0.0110804355, a: 1}
+    - _OutlineColor: {r: 1, g: 0.8950032, b: 0, a: 1}
     - _ReflectFaceColor: {r: 0, g: 0, b: 0, a: 1}
     - _ReflectOutlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
-    - _UnderlayColor: {r: 0.9716981, g: 0.8320299, b: 0.022917405, a: 0.4392157}
+    - _UnderlayColor: {r: 0.8059756, g: 0.8490566, b: 0.0040049935, a: 0.5}
   m_BuildTextureStacks: []
 --- !u!28 &4866436210223834214
 Texture2D:
