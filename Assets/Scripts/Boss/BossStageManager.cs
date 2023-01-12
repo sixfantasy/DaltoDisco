@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class BossStageManager : MonoBehaviour
@@ -8,6 +9,10 @@ public class BossStageManager : MonoBehaviour
     UIManager distanceReference;
     public int Stage;
     public EnemySpawner spawner;
+
+    [SerializeField] private BackgroundManager _backgroundManager;
+    [SerializeField] private GameObject _bossAnnouncement;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +25,9 @@ public class BossStageManager : MonoBehaviour
     {
         if (distanceReference.DistanceTravelled > 200 && Stage == 0)
         {
+            _backgroundManager.isBossfightHappenning = true;
+            StartCoroutine(_backgroundManager.BackgroundPeriod());
+            StartCoroutine(DoBossAnnouncement());
             Stage = 1;
             spawner.enabled = false;
         }
@@ -31,7 +39,18 @@ public class BossStageManager : MonoBehaviour
             spawner.enabled = true;
         GetComponent<Animator>().SetInteger("Stage", Stage);
         Debug.Log(GetComponent<Animator>().GetInteger("Stage"));
+    }
 
+    private IEnumerator DoBossAnnouncement()
+    {
+        _bossAnnouncement.SetActive(true);
+        yield return new WaitForSeconds(_backgroundManager.GetTimeBetweenChanges());
+        Destroy(_bossAnnouncement);
+    }
 
+    private void OnDestroy()
+    {
+        _backgroundManager.isBossfightHappenning = false;
+        _backgroundManager.ResetBackground();
     }
 }
