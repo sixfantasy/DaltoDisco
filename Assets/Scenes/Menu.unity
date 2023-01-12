@@ -200,7 +200,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 0.83137256, g: 0.7764706, b: 0.14117648, a: 1}
+  m_fontColor: {r: 0.9339623, g: 0.86492634, b: 0.066082224, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2229,8 +2229,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: DALTODISCO
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: ef54b0a8afc9f5742b182562f2a2a08b, type: 2}
-  m_sharedMaterial: {fileID: 857636387305972887, guid: ef54b0a8afc9f5742b182562f2a2a08b, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 57b97f85227bee94cb9a0c25129b185b, type: 2}
+  m_sharedMaterial: {fileID: 857636387305972887, guid: 57b97f85227bee94cb9a0c25129b185b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

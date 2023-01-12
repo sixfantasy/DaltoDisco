@@ -169,7 +169,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 112516429}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: 7a26305bf687fd24f94ce037a09fa57c, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: 3210784bbaae6944e8d3d068dbf77fd6, type: 3}
   m_TargetCameraAlpha: 0.75
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 589913760}
@@ -182,12 +182,14 @@ VideoPlayer:
   m_DataSource: 0
   m_PlaybackSpeed: 0.5
   m_AudioOutputMode: 0
-  m_TargetAudioSources: []
-  m_DirectAudioVolumes: []
+  m_TargetAudioSources:
+  - {fileID: 0}
+  m_DirectAudioVolumes:
+  - 1
   m_Url: 
-  m_EnabledAudioTracks: 
-  m_DirectAudioMutes: 
-  m_ControlledAudioTrackCount: 0
+  m_EnabledAudioTracks: 01
+  m_DirectAudioMutes: 00
+  m_ControlledAudioTrackCount: 1
   m_PlayOnAwake: 1
   m_SkipOnDrop: 1
   m_Looping: 1
@@ -381,7 +383,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4280600276
-  m_fontColor: {r: 0.83137256, g: 0.7764706, b: 0.14117648, a: 1}
+  m_fontColor: {r: 0, g: 0.69411767, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -931,10 +933,10 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.8666667, g: 0.80784315, b: 0.14509805, a: 1}
-    m_HighlightedColor: {r: 0.8666667, g: 0.80784315, b: 0.14509805, a: 1}
-    m_PressedColor: {r: 0.6117647, g: 0.5764706, b: 0.14901961, a: 1}
-    m_SelectedColor: {r: 0.8666667, g: 0.80784315, b: 0.14509805, a: 1}
+    m_NormalColor: {r: 1, g: 0.39215687, b: 0.6392157, a: 1}
+    m_HighlightedColor: {r: 0.6698113, g: 0.26223743, b: 0.4296338, a: 1}
+    m_PressedColor: {r: 0.9960785, g: 0.3921569, b: 0.63529414, a: 1}
+    m_SelectedColor: {r: 0.9960785, g: 0.3921569, b: 0.63529414, a: 1}
     m_DisabledColor: {r: 1, g: 1, b: 1, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -1141,10 +1143,10 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.8666667, g: 0.80784315, b: 0.14509805, a: 1}
-    m_HighlightedColor: {r: 0.8666667, g: 0.80784315, b: 0.14509805, a: 1}
-    m_PressedColor: {r: 0.6117647, g: 0.5764706, b: 0.14901961, a: 1}
-    m_SelectedColor: {r: 0.8666667, g: 0.80784315, b: 0.14509805, a: 1}
+    m_NormalColor: {r: 1, g: 0.3921569, b: 0.6392157, a: 1}
+    m_HighlightedColor: {r: 0.6886792, g: 0.26312745, b: 0.4359078, a: 1}
+    m_PressedColor: {r: 0.9568628, g: 0.37647063, b: 0.6117647, a: 1}
+    m_SelectedColor: {r: 0.93725497, g: 0.36862746, b: 0.6, a: 1}
     m_DisabledColor: {r: 1, g: 1, b: 1, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -1458,10 +1460,10 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 0.39215687, b: 0.6392157, a: 1}
-    m_HighlightedColor: {r: 1, g: 0.39215687, b: 0.6392157, a: 1}
-    m_PressedColor: {r: 0.7647059, g: 0.24705882, b: 0.45882353, a: 1}
-    m_SelectedColor: {r: 1, g: 0.39215687, b: 0.6392157, a: 1}
+    m_NormalColor: {r: 0, g: 0.69411767, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.015686275, g: 0.46274513, b: 0.65882355, a: 1}
+    m_PressedColor: {r: 0.015574936, g: 0.46217972, b: 0.6603774, a: 1}
+    m_SelectedColor: {r: 0, g: 0.6901961, b: 0.9960785, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0
@@ -1842,8 +1844,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4288898303
-  m_fontColor: {r: 1, g: 0.39215687, b: 0.6392157, a: 1}
+    rgba: 4294947072
+  m_fontColor: {r: 0, g: 0.69411767, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1971,10 +1973,10 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 0.39215687, b: 0.6392157, a: 1}
-    m_HighlightedColor: {r: 1, g: 0.39215687, b: 0.6392157, a: 1}
-    m_PressedColor: {r: 0.7647059, g: 0.24705882, b: 0.45882353, a: 1}
-    m_SelectedColor: {r: 1, g: 0.39215687, b: 0.6392157, a: 1}
+    m_NormalColor: {r: 0, g: 0.69411767, b: 1, a: 1}
+    m_HighlightedColor: {r: 0, g: 0.6901961, b: 0.9921569, a: 1}
+    m_PressedColor: {r: 0.003070495, g: 0.4539901, b: 0.6509434, a: 1}
+    m_SelectedColor: {r: 0, g: 0.69411767, b: 1, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0
