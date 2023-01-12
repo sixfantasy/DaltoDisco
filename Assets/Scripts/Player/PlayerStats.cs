@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 
 public class PlayerStats : MonoBehaviour
 {
@@ -18,7 +18,7 @@ public class PlayerStats : MonoBehaviour
             Destroy(playerStats);
         }
         else playerStats = this;
-        DontDestroyOnLoad(this);
+       // DontDestroyOnLoad(this);
     }
     // Start is called before the first frame update
     void Start()
@@ -45,6 +45,7 @@ public class PlayerStats : MonoBehaviour
             playerAnimator.SetBool("IsDead",true);
             yield return new WaitForSeconds(2);
             Destroy(player);
+            SceneManager.LoadScene(2);
         }
     }
 }
