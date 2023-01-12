@@ -13,6 +13,9 @@ public class BossStageManager : MonoBehaviour
     [SerializeField] private BackgroundManager _backgroundManager;
     [SerializeField] private GameObject _bossAnnouncement;
 
+    [SerializeField] private AudioSource _mainSong;
+    [SerializeField] private AudioSource _afterBossSong;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -50,7 +53,13 @@ public class BossStageManager : MonoBehaviour
 
     private void OnDestroy()
     {
-        _backgroundManager.isBossfightHappenning = false;
-        _backgroundManager.ResetBackground();
+        if (damage.health <= 0)
+        {
+            _backgroundManager.isBossfightHappenning = false;
+            _backgroundManager.ResetBackground();
+
+            Destroy(_mainSong);
+            _afterBossSong.enabled = true;
+        }
     }
 }
