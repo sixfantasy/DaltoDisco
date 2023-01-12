@@ -8,6 +8,7 @@ public class BackgroundManager : MonoBehaviour
 
     [SerializeField] private float _timeBetweenBackgroundChanges;
     [SerializeField] private UnityEngine.Video.VideoPlayer _currentVideo;
+    [SerializeField] private GameObject _mrWorldWide;
 
     private int _currentVideoIndex;
     public bool isBossfightHappenning;
@@ -21,7 +22,17 @@ public class BackgroundManager : MonoBehaviour
 
     public float GetTimeBetweenChanges() => _timeBetweenBackgroundChanges;
 
-    public void ResetBackground() => StartCoroutine(ChangeToStandardBackground());
+    public void EndBoss()
+    { 
+        StartCoroutine(ChangeToStandardBackground());
+        StartCoroutine(EnableMrWorldWide());
+    }
+
+    private IEnumerator EnableMrWorldWide()
+    {
+        yield return new WaitForSeconds(_timeBetweenBackgroundChanges + 14);
+        _mrWorldWide.SetActive(true);
+    }
 
     private IEnumerator ChangeToStandardBackground()
     {

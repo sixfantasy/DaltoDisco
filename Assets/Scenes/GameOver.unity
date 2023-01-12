@@ -251,8 +251,8 @@ MonoBehaviour:
   _titleText: {fileID: 780169600}
   _maxLocalScale: 1.25
   _minLocalScale: 1
-  _scaleModifierSpeed: 4.5
-  _beatCooldown: 0.85
+  _scaleModifierSpeed: 3
+  _beatCooldown: 2
 --- !u!114 &232189666
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -268,8 +268,8 @@ MonoBehaviour:
   _titleText: {fileID: 1967255538}
   _maxLocalScale: 1.25
   _minLocalScale: 1
-  _scaleModifierSpeed: 4.5
-  _beatCooldown: 0.85
+  _scaleModifierSpeed: 3
+  _beatCooldown: 2
 --- !u!114 &232189667
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -285,8 +285,8 @@ MonoBehaviour:
   _titleText: {fileID: 1483172775}
   _maxLocalScale: 1.25
   _minLocalScale: 1
-  _scaleModifierSpeed: 4.5
-  _beatCooldown: 0.37
+  _scaleModifierSpeed: 3
+  _beatCooldown: 0.5575
 --- !u!224 &232189668
 RectTransform:
   m_ObjectHideFlags: 0

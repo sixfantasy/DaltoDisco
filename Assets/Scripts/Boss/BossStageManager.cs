@@ -55,8 +55,10 @@ public class BossStageManager : MonoBehaviour
     {
         if (damage.health <= 0)
         {
+            if (_bossAnnouncement != null) Destroy(_bossAnnouncement);
+
             _backgroundManager.isBossfightHappenning = false;
-            _backgroundManager.ResetBackground();
+            _backgroundManager.EndBoss();
 
             Destroy(_mainSong);
             _afterBossSong.enabled = true;
