@@ -181,13 +181,14 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '- Press X to jump
+  m_text: '- Press Space to jump
 
 
     - Aim with the mouse
 
 
-    - Press X to shoot
+    - Press Left click
+    to shoot
 
 '
   m_isRightToLeft: 0
