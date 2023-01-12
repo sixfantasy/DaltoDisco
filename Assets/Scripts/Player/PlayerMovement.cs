@@ -26,15 +26,23 @@ public class PlayerMovement : MonoBehaviour
         if (playerCollider != null)
         {
             IsGrounded();
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space) && !IsGrounded() || isJumping)
             {
                 // Use has pressed the Space key. We don't know if they'll release or hold it, so keep track of when they started holding it.
-                _spacePressedTime = Time.timeSinceLevelLoad;
+                Jump();
+                isJumping = true;
+                _spacePressedTime += Time.deltaTime;
+                if (Input.GetKeyUp(KeyCode.Space) || _spacePressedTime >= 0.3f)
+                    isJumping = false;
             }
-            else if (Input.GetKeyUp(KeyCode.Space) && !IsGrounded())
+            else
             {
-                Jump(Time.timeSinceLevelLoad  - _spacePressedTime);
+                _spacePressedTime = 0;
             }
+            /*else if (Input.GetKeyUp(KeyCode.Space) && !IsGrounded())
+            {
+              Jump(Time.timeSinceLevelLoad - _spacePressedTime);
+            }/*
             //IsGrounded();
             /*if (Input.GetAxis("Jump") > 0 && !IsGrounded())
             {
@@ -42,12 +50,11 @@ public class PlayerMovement : MonoBehaviour
             }*/
         }
     }
-    void Jump(float length)
+    void Jump()
     {
-
-        Debug.Log("Jumping");
-        _rb.velocity = new Vector2(0, _jumpForce*Mathf.Clamp(length, 0.1f, 0.2f)*6);
-        _animator.SetBool("IsJumping", true);
+            Debug.Log("Jumping");
+            _rb.velocity = new Vector2(0, _jumpForce);
+            _animator.SetBool("IsJumping", true); 
     }
 
     private bool IsGrounded()
