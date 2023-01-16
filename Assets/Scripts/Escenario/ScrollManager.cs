@@ -28,4 +28,6 @@ public class ScrollManager : MonoBehaviour
         if (!hasToScroll) return 0;
         return _speed;
     }
+
+    public void MultiplyAcceleration(float multiplier) => _acceleration *= multiplier;
 }
