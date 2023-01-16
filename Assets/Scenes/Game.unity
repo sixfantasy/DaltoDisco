@@ -6433,7 +6433,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b20d7b4bdf0d9674ca9c7843c95ef0e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlatformPrefab: {fileID: 7641872355172924471, guid: 980771073f1e44c4cb4eb2a5451b081a, type: 3}
+  scriptablePlatforms: {fileID: 11400000, guid: 278ca0ab236c74a49af41aa226eac942, type: 2}
 --- !u!114 &1070978558
 MonoBehaviour:
   m_ObjectHideFlags: 0

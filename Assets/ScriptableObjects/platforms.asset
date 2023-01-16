@@ -12,4 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9e78f95d43f8914aa2e608aa6b2674f, type: 3}
   m_Name: platforms
   m_EditorClassIdentifier: 
-  platforms: []
+  platforms:
+  - {fileID: 7641872355172924471, guid: 980771073f1e44c4cb4eb2a5451b081a, type: 3}
+  - {fileID: 7641872355172924471, guid: c99f34de61763754d82ce5c2f2d09694, type: 3}
+  - {fileID: 7641872355172924471, guid: b8f6dab2800d9464882dc17ea13e0f54, type: 3}
+  - {fileID: 7641872355172924471, guid: bf865de59af790a45b8f164c157e2c84, type: 3}
+  - {fileID: 7641872355172924471, guid: e6a26b7572b0d9b4ab073ae0f63ad2de, type: 3}
+  - {fileID: 7641872355172924471, guid: ee14634522281fc41b6c28bc2302f671, type: 3}
