@@ -38,7 +38,7 @@ public class BossStageManager : MonoBehaviour
             Stage = 2;
         if (damage.health < 200 && Stage == 2)
             Stage = 3;
-        if (damage.health > 0 && Stage == 2)
+        if (damage.health <= 100 && Stage == 3)
             spawner.enabled = true;
         GetComponent<Animator>().SetInteger("Stage", Stage);
         Debug.Log(GetComponent<Animator>().GetInteger("Stage"));
