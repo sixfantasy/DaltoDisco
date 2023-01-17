@@ -11,4 +11,10 @@ public class CubataCollission : MonoBehaviour
             //Nose que posar xd
         }
     }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Ground")
+            GetComponent<ScenarioScroll>().enabled = true;
+    }
 }
