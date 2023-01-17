@@ -15,14 +15,15 @@ public class BossProjectile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision != null && collision.gameObject.tag == "Player")
+        {
             GameObject.Find("Managers").GetComponent<PlayerStats>().DealDamage(50);
             //Deduct a life to player
-        Destroy(this.gameObject);
-
+            Destroy(this.gameObject);
+        }
     }
 }
