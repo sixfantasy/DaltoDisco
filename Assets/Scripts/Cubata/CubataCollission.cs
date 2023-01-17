@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class CubataCollission : MonoBehaviour
 {
-    private void OnTriggerEnter2D(Collider2D collision)
+    public float cubataHeal;
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.collider.tag == "Player")
         {
-            //Nose que posar xd
+            CubataManager.Instance.isDrunk=true;
+            PlayerStats.playerStats.HealCharacter(cubataHeal);
+            Destroy(this.gameObject);
         }
     }
 
