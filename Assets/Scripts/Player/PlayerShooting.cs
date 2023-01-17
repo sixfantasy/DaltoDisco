@@ -29,7 +29,7 @@ public class PlayerShooting : MonoBehaviour
         {
             GameObject spawn = Instantiate(projectile, collider2D.bounds.center, Quaternion.identity);
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            if (CubataManager.Instance.isDrunk)
+            if (CubataManager.Instance.postProcessLayer.enabled)
             {
                 mousePos += new Vector2(0, Random.Range(-3, 3));
             }

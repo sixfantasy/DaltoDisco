@@ -19,7 +19,7 @@ public class PotionSpawner : MonoBehaviour
     {
         potionTimer += Time.deltaTime;
 
-        if (potionTimer >= 10f)
+        if (potionTimer >= Random.Range(7f,12f))
         {
             Instantiate(cubata, cam.ScreenToWorldPoint(new Vector3(Screen.width + 100, Screen.height + 200, 10)), Quaternion.identity);
             potionTimer = 0f;
