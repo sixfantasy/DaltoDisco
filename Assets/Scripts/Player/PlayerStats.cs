@@ -29,6 +29,7 @@ public class PlayerStats : MonoBehaviour
     public void DealDamage(float damage)
     {
         health -= damage;
+        playerAnimator.SetTrigger("Hit");
         StartCoroutine(CheckDeath());
     }
     public void HealCharacter(float heal)

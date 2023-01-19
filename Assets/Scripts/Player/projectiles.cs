@@ -14,7 +14,11 @@ public class projectiles : MonoBehaviour
             {
                 collision.GetComponent<EnemyGetDamage>().DealDamage(damage);
             }
-            Destroy(gameObject);
+            GetComponent<Animator>().SetTrigger("Explode");
         }
+    }
+    public void OnDeathAnimationFinish()
+    {
+        Destroy(this.gameObject);
     }
 }
