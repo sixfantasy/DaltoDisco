@@ -11,6 +11,8 @@ public class PlayerStats : MonoBehaviour
     public float health;
     public float maxHealth;
 
+    [SerializeField] private SceneTransition _sceneTransition;
+
     public void Awake()
     {
         if (playerStats != null)
@@ -38,14 +40,20 @@ public class PlayerStats : MonoBehaviour
 
     IEnumerator CheckDeath()
     {
-        if (health <= 0)
+        if (health <= 0 )
         {
-            health = 0;
+            health = 1;
             Destroy(player.GetComponent<Collider2D>());
             playerAnimator.SetBool("IsDead",true);
             yield return new WaitForSeconds(2);
             Destroy(player);
-            SceneManager.LoadScene(2);
+            StartCoroutine(GoToEndScene());
         }
+    }
+
+    IEnumerator GoToEndScene()
+    {
+        yield return StartCoroutine(_sceneTransition.DoFading(false));
+        SceneManager.LoadScene(2);
     }
 }

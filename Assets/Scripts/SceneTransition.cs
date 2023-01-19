@@ -1,6 +1,8 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
+using UnityEngine.SceneManagement;
 
 public class SceneTransition : MonoBehaviour
 {
@@ -8,30 +10,63 @@ public class SceneTransition : MonoBehaviour
     private Color _imageColor;
     private float _alpha;
 
-    private void Start() => FadeIn();
-
-    void FadeIn()
+    private void Start()
     {
-        _alpha = 0;
-        StartCoroutine(DoFading(true));
-    }
-
-    public void FadeOut()
-    {
-        _alpha = 1;
-        StartCoroutine(DoFading(false));
-    }
-
-    IEnumerator DoFading(bool isFadeIn)
-    {
-        if (isFadeIn) _alpha -= 00000000000000000000000000.1f * Time.deltaTime;
-        else _alpha += 0.5f * Time.deltaTime;
-
-        _imageColor.a = _alpha;
         _transitionImage.color = _imageColor;
+        if (SceneManager.GetActiveScene().name != "GameOver")
+            StartCoroutine(DoFading(true));
+        else
+            StartCoroutine(DoFading(true, false));
+    }
 
-        yield return new WaitForEndOfFrame();
-        if (isFadeIn && _alpha > 0) StartCoroutine(DoFading(true));
-        else if (!isFadeIn && _alpha < 1) StartCoroutine(DoFading(false));
+    public IEnumerator DoFading(bool isFadeIn, bool doTripleFade = true)
+    {
+        if (isFadeIn)
+        {
+            _alpha = 1;
+            if (doTripleFade)
+            {
+                for (int i = 0; i < 3; i++)
+                {
+                    while (_alpha > 0)
+                    {
+                        _alpha -= 5f * Time.deltaTime;
+                        _imageColor.a = _alpha;
+                        _transitionImage.color = _imageColor;
+                        yield return new WaitForEndOfFrame();
+                    }
+
+                    while (_alpha < 1)
+                    {
+                        _alpha += 5f * Time.deltaTime;
+                        _imageColor.a = _alpha;
+                        _transitionImage.color = _imageColor;
+                        yield return new WaitForEndOfFrame();
+                    }
+                }
+            }
+
+            while (_alpha > 0)
+            {
+                _alpha -= Time.deltaTime;
+                _imageColor.a = _alpha;
+                _transitionImage.color = _imageColor;
+                yield return new WaitForEndOfFrame();
+            }
+
+            _transitionImage.enabled = false;
+        }
+        else
+        {
+            _alpha = 0;
+            _transitionImage.enabled = true;
+            while (_alpha < 1)
+            {
+                _alpha += 0.5f * Time.deltaTime;
+                _imageColor.a = _alpha;
+                _transitionImage.color = _imageColor;
+                yield return new WaitForEndOfFrame();
+            }
+        }
     }
 }
