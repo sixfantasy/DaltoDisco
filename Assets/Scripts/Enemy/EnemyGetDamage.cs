@@ -18,6 +18,7 @@ public class EnemyGetDamage : MonoBehaviour
     {
 
         health -= damage;
+        animator.SetTrigger("Hit");
         CheckDeath();
     }
     public void HealCharacter(float heal)

@@ -22,8 +22,12 @@ public class BossProjectile : MonoBehaviour
         if (collision != null && collision.gameObject.tag == "Player")
         {
             GameObject.Find("Managers").GetComponent<PlayerStats>().DealDamage(50);
-            //Deduct a life to player
-            Destroy(this.gameObject);
+            GetComponent<Animator>().SetTrigger("Explode");
         }
+        
+    }
+    public void OnDeathAnimationFinish()
+    {
+        Destroy(this.gameObject);
     }
 }
