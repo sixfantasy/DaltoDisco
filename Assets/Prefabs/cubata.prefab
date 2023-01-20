@@ -147,7 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d14d8eee835b1c4cb823dfd725e3882, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cubataHeal: 50
+  cubataHeal: 33
 --- !u!114 &6012934758621227216
 MonoBehaviour:
   m_ObjectHideFlags: 0

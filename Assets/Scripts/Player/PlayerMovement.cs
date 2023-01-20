@@ -39,20 +39,10 @@ public class PlayerMovement : MonoBehaviour
             {
                 _spacePressedTime = 0;
             }
-            /*else if (Input.GetKeyUp(KeyCode.Space) && !IsGrounded())
-            {
-              Jump(Time.timeSinceLevelLoad - _spacePressedTime);
-            }/*
-            //IsGrounded();
-            /*if (Input.GetAxis("Jump") > 0 && !IsGrounded())
-            {
-                Jump();
-            }*/
         }
     }
     void Jump()
     {
-            Debug.Log("Jumping");
             _rb.velocity = new Vector2(0, _jumpForce);
             _animator.SetBool("IsJumping", true); 
     }
@@ -66,7 +56,6 @@ public class PlayerMovement : MonoBehaviour
         if ((rayLeft.collider != null && rayLeft.collider.gameObject.CompareTag("Ground"))
             || (rayRight.collider != null && rayRight.collider.gameObject.CompareTag("Ground")))
         {
-            Debug.Log("Ground Detected");
             _animator.SetBool("IsJumping", false);
             return false;
         }
