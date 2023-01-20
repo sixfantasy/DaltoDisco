@@ -6,6 +6,7 @@ public class BossProjectile : MonoBehaviour
 {
     // Start is called before the first frame update
     Rigidbody2D rb;
+    public AudioClip sound;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -23,6 +24,7 @@ public class BossProjectile : MonoBehaviour
         {
             GameObject.Find("Managers").GetComponent<PlayerStats>().DealDamage(50);
             GetComponent<Animator>().SetTrigger("Explode");
+            GetComponent<AudioSource>().PlayOneShot(sound);
         }
         
     }

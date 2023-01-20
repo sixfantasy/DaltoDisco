@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerShooting : MonoBehaviour
 {
     public GameObject projectile;
+    public AudioClip shotSound;
     public float damage;
     public float projectileForce;
     public float shootCooldown = 3;
@@ -26,10 +27,12 @@ public class PlayerShooting : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0) && collider2D != null && readyToFire==true)
         {
+            GetComponent<AudioSource>().PlayOneShot(shotSound);
             GameObject spawn = Instantiate(projectile, collider2D.bounds.center, Quaternion.identity);
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             if (CubataManager.Instance.postProcessLayer.enabled)
             {
+
                 mousePos += new Vector2(0, Random.Range(-3, 3));
             }
             Vector2 myPos = transform.position;
