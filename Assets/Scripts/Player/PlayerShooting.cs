@@ -11,7 +11,6 @@ public class PlayerShooting : MonoBehaviour
     private bool readyToFire = true;
     private BoxCollider2D collider2D;
     Vector2 shootCorrection = new Vector2(0, -2);
-    bool isDrunk = false;
 
     private void Start()
     {
