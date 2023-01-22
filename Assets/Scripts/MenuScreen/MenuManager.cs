@@ -1,9 +1,21 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
-    public void StartGame() => SceneManager.LoadScene(1);
+    [SerializeField] private SceneTransition _sceneTransition;
 
-    public void ExitGame() => Application.Quit();
+    IEnumerator ChangeScene(int scene)
+    {
+        yield return StartCoroutine(_sceneTransition.DoFading(false));
+        if (scene == -1) Application.Quit();
+        else SceneManager.LoadSceneAsync(scene);
+    }
+
+    public void StartGame() => StartCoroutine(ChangeScene(1));
+
+    public void ExitGame() => StartCoroutine(ChangeScene(-1));
+
+    public void MenuScene() => StartCoroutine(ChangeScene(0));
 }

@@ -12,5 +12,6 @@ public class UIManager : MonoBehaviour
     {
         DistanceTravelled += ScrollManager.Instance.GetScrollSpeed() * Time.deltaTime;
         DistanceTravelledText.text = "Distance travelled: " + DistanceTravelled.ToString("0.00") + "m";
+        PlayerPrefs.SetFloat("DistanceTravelled",DistanceTravelled);
     }
 }

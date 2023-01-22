@@ -10,7 +10,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float _jumpForce;
     private bool isJumping;
     private Rigidbody2D _rb;
-    private Animator _animator; 
+    private Animator _animator;
+    private float _spacePressedTime = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -25,18 +26,25 @@ public class PlayerMovement : MonoBehaviour
         if (playerCollider != null)
         {
             IsGrounded();
-            if (Input.GetAxis("Jump") > 0 && !IsGrounded())
+            if (Input.GetKeyDown(KeyCode.Space) && !IsGrounded() || isJumping)
             {
+                // Use has pressed the Space key. We don't know if they'll release or hold it, so keep track of when they started holding it.
                 Jump();
+                isJumping = true;
+                _spacePressedTime += Time.deltaTime;
+                if (Input.GetKeyUp(KeyCode.Space) || _spacePressedTime >= 0.3f)
+                    isJumping = false;
+            }
+            else
+            {
+                _spacePressedTime = 0;
             }
         }
     }
     void Jump()
     {
-
-        Debug.Log("Jumping");
-        _rb.velocity = new Vector2(0, _jumpForce);
-        //_animator.SetBool("IsJumping", true);
+            _rb.velocity = new Vector2(0, _jumpForce);
+            _animator.SetBool("IsJumping", true); 
     }
 
     private bool IsGrounded()
@@ -48,7 +56,6 @@ public class PlayerMovement : MonoBehaviour
         if ((rayLeft.collider != null && rayLeft.collider.gameObject.CompareTag("Ground"))
             || (rayRight.collider != null && rayRight.collider.gameObject.CompareTag("Ground")))
         {
-            Debug.Log("Ground Detected");
             _animator.SetBool("IsJumping", false);
             return false;
         }

@@ -16,8 +16,9 @@ public class EnemyGetDamage : MonoBehaviour
     }
     public void DealDamage(float damage)
     {
-
         health -= damage;
+        if (gameObject.name != "SirVinyl(Clone)" && gameObject.name != "LadySticks(Clone)")
+            animator.SetTrigger("Hit");
         CheckDeath();
     }
     public void HealCharacter(float heal)
@@ -27,7 +28,7 @@ public class EnemyGetDamage : MonoBehaviour
 
     private void CheckDeath()
     {
-        if (health < 0)
+        if (health <= 0)
         {
             StartCoroutine(Die());
         }

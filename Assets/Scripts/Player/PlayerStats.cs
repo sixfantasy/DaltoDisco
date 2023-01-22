@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 
 public class PlayerStats : MonoBehaviour
 {
@@ -11,6 +11,8 @@ public class PlayerStats : MonoBehaviour
     public float health;
     public float maxHealth;
 
+    [SerializeField] private SceneTransition _sceneTransition;
+
     public void Awake()
     {
         if (playerStats != null)
@@ -18,7 +20,7 @@ public class PlayerStats : MonoBehaviour
             Destroy(playerStats);
         }
         else playerStats = this;
-        DontDestroyOnLoad(this);
+       // DontDestroyOnLoad(this);
     }
     // Start is called before the first frame update
     void Start()
@@ -29,22 +31,28 @@ public class PlayerStats : MonoBehaviour
     public void DealDamage(float damage)
     {
         health -= damage;
-        StartCoroutine(CheckDeath());
+        playerAnimator.SetTrigger("Hit");
+        CheckDeath();
     }
     public void HealCharacter(float heal)
     {
         health += heal;
+        if (health > maxHealth) health = maxHealth;
     }
 
-    IEnumerator CheckDeath()
+    void CheckDeath()
     {
-        if (health <= 0)
+        if (health <= 0 )
         {
-            health = 0;
             Destroy(player.GetComponent<Collider2D>());
             playerAnimator.SetBool("IsDead",true);
-            yield return new WaitForSeconds(2);
-            Destroy(player);
+            StartCoroutine(GoToEndScene());
         }
+    }
+
+    IEnumerator GoToEndScene()
+    {
+        yield return StartCoroutine(_sceneTransition.DoFading(false));
+        SceneManager.LoadScene(2);
     }
 }
