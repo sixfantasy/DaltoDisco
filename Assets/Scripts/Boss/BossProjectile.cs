@@ -5,11 +5,8 @@ using UnityEngine;
 public class BossProjectile : MonoBehaviour
 {
     Rigidbody2D rb;
-<<<<<<< Assets/Scripts/Boss/BossProjectile.cs
     public AudioClip sound;
-=======
     public float damage;
->>>>>>> Assets/Scripts/Boss/BossProjectile.cs
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
