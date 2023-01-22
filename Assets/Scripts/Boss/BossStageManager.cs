@@ -41,7 +41,6 @@ public class BossStageManager : MonoBehaviour
         if (damage.health <= 100 && Stage == 3)
             spawner.enabled = true;
         GetComponent<Animator>().SetInteger("Stage", Stage);
-        Debug.Log(GetComponent<Animator>().GetInteger("Stage"));
     }
 
     private IEnumerator DoBossAnnouncement()

@@ -11,6 +11,8 @@ public class EnemyMakeDamage : MonoBehaviour
         if (collision.collider.CompareTag("Player"))
         {
             PlayerStats.playerStats.DealDamage(damage);
+            EnemyGetDamage enemyGetDamage = GetComponent<EnemyGetDamage>();
+            enemyGetDamage.DealDamage(enemyGetDamage.maxHealth);
         }
     }
 }

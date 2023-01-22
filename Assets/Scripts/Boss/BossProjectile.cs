@@ -4,25 +4,23 @@ using UnityEngine;
 
 public class BossProjectile : MonoBehaviour
 {
-    // Start is called before the first frame update
     Rigidbody2D rb;
+<<<<<<< Assets/Scripts/Boss/BossProjectile.cs
     public AudioClip sound;
+=======
+    public float damage;
+>>>>>>> Assets/Scripts/Boss/BossProjectile.cs
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = transform.right * -12;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision != null && collision.gameObject.tag == "Player")
         {
-            GameObject.Find("Managers").GetComponent<PlayerStats>().DealDamage(50);
+            GameObject.Find("Managers").GetComponent<PlayerStats>().DealDamage(damage);
             GetComponent<Animator>().SetTrigger("Explode");
             GetComponent<AudioSource>().PlayOneShot(sound);
         }

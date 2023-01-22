@@ -32,22 +32,20 @@ public class PlayerStats : MonoBehaviour
     {
         health -= damage;
         playerAnimator.SetTrigger("Hit");
-        StartCoroutine(CheckDeath());
+        CheckDeath();
     }
     public void HealCharacter(float heal)
     {
         health += heal;
+        if (health > maxHealth) health = maxHealth;
     }
 
-    IEnumerator CheckDeath()
+    void CheckDeath()
     {
         if (health <= 0 )
         {
-            health = 1;
             Destroy(player.GetComponent<Collider2D>());
             playerAnimator.SetBool("IsDead",true);
-            yield return new WaitForSeconds(2);
-            Destroy(player);
             StartCoroutine(GoToEndScene());
         }
     }
