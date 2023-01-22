@@ -6,7 +6,7 @@ public class BossProjectile : MonoBehaviour
 {
     Rigidbody2D rb;
     public AudioClip sound;
-    public float damage;
+    public float damage = 20;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
